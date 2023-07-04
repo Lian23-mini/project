@@ -105,9 +105,9 @@ class CheckOutStripeView(View):
                 cart.products = []
                 cart.save()
                 try:
-                    subject = "Compra de Consoldor"
-                    message = f"Gracias por tu compra {client_name}! espero te lo metas por donde mas te quepa"
-                    from_email = "yaircontactos@gmail.com"  # Replace with your Gmail email address
+                    subject = "Compra Online"
+                    message = f"Gracias por tu compra {client_name}! esperamos que vuelvas pronto"
+                    from_email = "Carocell1compras@gmail.com"  # Replace with your Gmail email address
                     recipient_list = [
                         client_email
                     ]  # Replace with the recipient's email address
