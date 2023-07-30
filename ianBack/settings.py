@@ -26,7 +26,10 @@ SECRET_KEY = "django-insecure-#7=^62=_n-ts$u@^u&2arv8ck6!+szhk)rs9ybtyhrxmxx3$yg
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "https://project-production-9164.up.railway.app",
+]
 CORS_ORIGIN_ALLOW_ALL = True
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
