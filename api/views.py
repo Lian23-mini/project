@@ -91,6 +91,17 @@ class CheckOutStripeView(View):
         jd = json.loads(request.body)
         client_email = jd["dataForm"]["email"]
         client_name = jd["dataForm"]["names"]
+        ticket = ""
+        total_amount = int(jd["amount"])
+        for i in jd["cart_items"]:
+            for key, value in i.items():
+                if key == "name":
+                    ticket += f"Producto: {value}\n"
+                if key == "price":
+                    ticket += f"Precio: ${value}\n"
+                # if key == "description":
+                #     ticket += f"Descripcion: {value}\n"
+            ticket += "-------------------------------\n"
 
         try:
             payment_intent = stripe.PaymentIntent.create(
@@ -106,7 +117,7 @@ class CheckOutStripeView(View):
                 cart.save()
                 try:
                     subject = "Compra Online"
-                    message = f"Gracias por tu compra {client_name}! esperamos que vuelvas pronto"
+                    message = f"Gracias por tu compra {client_name}! esperamos que vuelvas pronto a continuacion se muestra tu ticket de compra\n{ticket}\nTotal:${total_amount/100}"
                     from_email = "Carocell1compras@gmail.com"  # Replace with your Gmail email address
                     recipient_list = [
                         client_email
@@ -121,4 +132,4 @@ class CheckOutStripeView(View):
                 return HttpResponse("payment unsuccessful", status=500)
         except Exception as e:
             print(e)
-            return HttpResponse("no payment created", status=500)
+        return HttpResponse("no payment created", status=500)
