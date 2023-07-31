@@ -53,10 +53,13 @@ const Home = () => {
         <div id="location">
           <h1 className=" text-center text-3xl text-white mb-5">Ubicación</h1>
           <p className="text-center text-white text-lg mb-5">
-            Nos ubicamos en Lago Zarias con esquina en Lomas a Geo #49
+            Nos ubicamos en{" "}
+            <span className="font-bold">
+              Guadalupe Victoria #19 San Lucas Tunco, Metepec, México
+            </span>
           </p>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.506105474515!2d-99.69822352395488!3d19.30383278194827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd8823febb6bad%3A0x4e72bff1a7c9ac30!2sC.%20Fernando%20Montes%20de%20Oca%2079%2C%20Delegaci%C3%B3n%20San%20Mateo%20Oxtotitl%C3%A1n%2C%2050100%20Toluca%20de%20Lerdo%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1687553212219!5m2!1ses-419!2smx"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.1695391600438!2d-99.5364515239929!3d19.23144158200541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdf4a5f5c330fd%3A0xa9460a9ed3e7bf89!2sGuadalupe%20Victoria%2019%2C%20San%20Lucas%20Tunco%2C%2052145%20San%20Lucas%20Tunco%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1690836366383!5m2!1ses-419!2smx"
             width="450"
             height="350"
             allowfullscreen=""
@@ -65,7 +68,7 @@ const Home = () => {
             referrerpolicy="no-referrer-when-downgrade"
           />
         </div>
-        <FormCheckout></FormCheckout>
+        <FormCheckout />
 
         <Products />
         <Footer />

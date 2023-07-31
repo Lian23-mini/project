@@ -20,15 +20,15 @@ const stripePromise = loadStripe(
 
 const CheckOut = ({ totalCart, closeModal, handleForm }) => {
   const { user } = useContext(AuthContext);
-  const { getCartItems } = useContext(CartContext);
+  const { getCartItems, cartItems } = useContext(CartContext);
   const [loader, setLoader] = useState(false);
   const stripe = useStripe();
 
+  console.log(cartItems);
   const elements = useElements();
   const handleSubmit = async (dataForm) => {
     const amountInDollars = totalCart;
     const amountInCents = Math.round(amountInDollars * 100);
-
     // e.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -44,6 +44,7 @@ const CheckOut = ({ totalCart, closeModal, handleForm }) => {
           amount: amountInCents,
           user_id: user.id,
           dataForm,
+          cart_items: cartItems,
         })
         .then((res) => {
           console.log(res.data);
